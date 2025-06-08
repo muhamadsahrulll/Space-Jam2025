@@ -5,14 +5,19 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float startTime = 30f;
     private float remainingTime;
-    public TMP_Text timerText; // Ensure this is assigned in the Inspector
+    public TMP_Text timerText;
     private bool running;
 
     void OnEnable()
     {
-        remainingTime = startTime;
+        //remainingTime = startTime;
+        //running = true;
+    }
+
+    public void StartTimer(float time)
+    {
+        remainingTime = time;
         running = true;
     }
 
@@ -28,13 +33,9 @@ public class CountdownTimer : MonoBehaviour
             GameManager.Instance.OnTimeUp();
         }
 
-        if (timerText != null) // Add a null check to avoid errors
+        if (timerText != null)
         {
             timerText.text = $"Time: {remainingTime:0}";
-        }
-        else
-        {
-            Debug.LogError("TimerText is not assigned!");
         }
     }
 

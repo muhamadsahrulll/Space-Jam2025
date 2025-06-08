@@ -12,17 +12,13 @@ public class TypingInput : MonoBehaviour
     {
         dialogueSystem = FindObjectOfType<RobotDialogueSystem>();
         inputField.onSubmit.AddListener(OnSubmit);
+        inputField.onValueChanged.AddListener(OnValueChanged); // Tambahkan ini
         DisableTyping();
     }
 
     public void Update()
     {
-        // Jika InputField sedang fokus dan Enter ditekan:
-        if (inputField.isFocused && Input.GetKeyDown(KeyCode.Return))
-        {
-            // Force‐submit
-            OnSubmit(inputField.text);
-        }
+        //inputField.onValueChanged.AddListener(OnValueChanged); // Tambahkan ini
     }
 
     public void EnableTyping()
@@ -44,5 +40,15 @@ public class TypingInput : MonoBehaviour
 
         DisableTyping();
         dialogueSystem.EvaluateAnswer(input);
+    }
+
+    private void OnValueChanged(string input)
+    {
+        string expected = GameManager.Instance.CurrentQuestion.correctAnswer;
+        Debug.Log($"Input: {input}, Expected: {expected}");
+        if (input.Trim().ToUpper() == expected.Trim().ToUpper())
+        {
+            OnSubmit(input);
+        }
     }
 }

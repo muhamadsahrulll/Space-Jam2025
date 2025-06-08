@@ -8,9 +8,10 @@ public class RobotDialogueSystem : MonoBehaviour
     
     public RobotDialogueSystem Instance;
     [Header("UI References")]
-    public TMP_Text robotTextUI;
-    public TMP_Text dialogBoxUI;
+    public TMP_Text questionTextUI;
+    public TMP_Text RobotDialog;
     public TMP_Text hintTextUI;
+    public TMP_Text playerDialog;
 
     [Header("Answer Settings")]
     public string correctAnswer = "BAGUS";
@@ -26,13 +27,13 @@ public class RobotDialogueSystem : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
     public void ShowIntroDialogue()
     {
-        robotTextUI.text = GenerateGarbled(hints[hintLevel]);
+        //robotTextUI.text = GenerateGarbled(hints[hintLevel]);
         hintTextUI.text = $"Hint: {hints[hintLevel]}";
         GameManager.Instance.SetState(GameState.AwaitingAnswer);
     }
@@ -55,25 +56,31 @@ public class RobotDialogueSystem : MonoBehaviour
 
     public void EvaluateAnswer(string userInput)
     {
-        Debug.Log($"User Input: {userInput}, Correct Answer: {correctAnswer}");
         GameManager.Instance.SetState(GameState.Evaluating);
 
-        if (userInput.ToUpper() == correctAnswer)
+        var expectedAnswer = GameManager.Instance.CurrentQuestion.correctAnswer.ToUpper();
+        var typedAnswer = userInput.ToUpper();
+
+        Debug.Log($"User Input: {typedAnswer}, Correct Answer: {expectedAnswer}");
+
+        if (typedAnswer == expectedAnswer)
         {
-            dialogBoxUI.text = "Robot: jawabanmu sangat meyakinkan.";
-            GameManager.Instance.SetState(GameState.PlayerLives);
-        }
-        else if (userInput.Length == correctAnswer.Length)
-        {
-            dialogBoxUI.text = "Robot: baiklah, terima kasih untuk jawabanmu.";
-            GameManager.Instance.SetState(GameState.PlayerDies);
+            RobotDialog.text = "Robot: jawabanmu sangat meyakinkan.";
+            GameManager.Instance.OnPlayerLives();
         }
         else
         {
-            dialogBoxUI.text = "Robot: Tidak, ini bukan jawaban yang aku inginkan.";
-            GameManager.Instance.SetState(GameState.PlayerDies);
+            RobotDialog.text = "Robot: Tidak, ini bukan jawaban yang aku inginkan.";
+            GameManager.Instance.OnPlayerDies();
         }
     }
+    public void DisplayQuestion(string questionText)
+    {
+        questionTextUI.text = questionText;
+        hintTextUI.text = "";
+        RobotDialog.text = "";
+    }
+
     
 
     private void TriggerAnimation(string trigger)
@@ -95,8 +102,7 @@ public class RobotDialogueSystem : MonoBehaviour
 
     public void ShowSuccessDialogue()
     {
-        // Bisa tambahkan animasi victory
-        GameManager.Instance.SetState(GameState.GameOver);
+        // Jangan set GameOver di sini, biar GameManager yang atur
         var anim = GetComponent<Animator>();
         if (anim != null)
         {
