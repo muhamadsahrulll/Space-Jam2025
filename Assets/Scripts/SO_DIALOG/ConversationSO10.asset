@@ -16,5 +16,8 @@ MonoBehaviour:
   - characterName: Robot
     dialogText: Question 3, Where is the quietest place for building a base? Valleys,
       Swamps, or Plains?
-  hasQuestionAfter: 1
-  questionIndex: 0
+    hasQuestion: 1
+    questionText: Question 3, Where is the quietest place for building a base? Valleys,
+      Swamps, or Plains?
+    answer: VALLEY
+    timeLimit: 30

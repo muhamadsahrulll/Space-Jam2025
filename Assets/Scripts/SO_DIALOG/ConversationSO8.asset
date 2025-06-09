@@ -16,5 +16,8 @@ MonoBehaviour:
   - characterName: Robot
     dialogText: Question 3, Where is the )(%&(*)@+ %_)@($:{ for }{?}{:%$_ a base?
       }{:%}, ?}%{)@, or #@%Q@?
-  hasQuestionAfter: 1
-  questionIndex: 0
+    hasQuestion: 1
+    questionText: Question 3, Where is the )(%&(*)@+ %_)@($:{ for }{?}{:%$_ a base?
+      }{:%}, ?}%{)@, or #@%Q@?
+    answer: VALLEY
+    timeLimit: 30

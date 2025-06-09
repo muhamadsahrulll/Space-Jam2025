@@ -16,5 +16,8 @@ MonoBehaviour:
   - characterName: Robot
     dialogText: Question 2, What *%^$ |}|:_$% _)$* be $@*&$ from _)%*? :{}"?, $(%&,
       or Steel?
-  hasQuestionAfter: 1
-  questionIndex: 0
+    hasQuestion: 1
+    questionText: Question 2, What *%^$ |}|:_$% _)$* be $@*&$ from _)%*? :{}"?, $(%&,
+      or Steel?
+    answer: STONE
+    timeLimit: 30

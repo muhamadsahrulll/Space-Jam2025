@@ -16,5 +16,8 @@ MonoBehaviour:
   - characterName: Robot
     dialogText: Question 2, What hard |}|:_$% _)$* be $@*&$ from earth? :{}"?, Clays,
       or Steel?
-  hasQuestionAfter: 0
-  questionIndex: 0
+    hasQuestion: 1
+    questionText: Question 2, What hard |}|:_$% _)$* be $@*&$ from earth? :{}"?,
+      Clays, or Steel?
+    answer: STONE
+    timeLimit: 30
