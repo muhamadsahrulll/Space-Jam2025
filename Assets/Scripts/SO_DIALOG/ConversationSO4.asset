@@ -13,66 +13,96 @@ MonoBehaviour:
   m_Name: ConversationSO4
   m_EditorClassIdentifier: 
   lines:
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: What... is this? A big light... like the sun... but... so close...
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: 'Boot sequence complete. System online. Terrain scan: prehistoric.
       Temporal displacement confirmed.'
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: Who are you? Iron road? God from the sky...?
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: Initiating linguistic interface. Translating primitive dialect...Translation
       complete.
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: You are not welcome here, this is my territory. you must leave
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: No, i have to build a base here. all obstacles must be destroyed.
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: what are you talking about? i don't understand.
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: I will ask you some questions and decide whether I should build a
       base here or not. If your answer is wrong, I will kill you.
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: Is this what is called language barrier? really tiring
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 1
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: Question 1, What is the highest place in this land? is it summit
       or forest?
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 1
     questionText: Question 1, What is the highest place in this land? is it summit
       or forest?

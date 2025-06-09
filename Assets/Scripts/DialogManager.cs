@@ -1,15 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
     [Header("UI Referensi")]
-    public TMP_Text characterNameText;
+    public Image diacharacterBox;
     public TMP_Text dialogText;
     public Button nextButton;
     public GameObject dialogPanel;
     public GameObject questionPanel;
+    public AudioSource SFXngomong;
+    public AudioSource SFXdeath;
+    
+    public GameObject cavemanPanel;
+    public GameObject robotPanel;
 
     [Header("Manager Referensi")]
     public QuestionManager questionManager;
@@ -21,6 +28,10 @@ public class DialogManager : MonoBehaviour
     private int currentLineIndex = 0;
 
     private bool waitingForAnswer = false;
+
+    public GameObject efekObj;
+    public Animator efek;
+    public Animator cavemanDeath;
 
     public void StartConversation(DialogSO[] conversations)
     {
@@ -42,6 +53,7 @@ public class DialogManager : MonoBehaviour
             Debug.Log("Semua dialog selesai.");
             dialogPanel.SetActive(false);
             questionPanel.SetActive(false);
+            SceneManager.LoadScene("Main Menu alternate");
             return;
         }
 
@@ -66,7 +78,25 @@ public class DialogManager : MonoBehaviour
         if (currentLineIndex < currentDialog.lines.Length)
         {
             var line = currentDialog.lines[currentLineIndex];
-            characterNameText.text = line.characterName;
+            diacharacterBox.sprite = line.dialogCharacter;
+            SFXngomong.clip = line.dialogSFX;
+            SFXngomong.Play();
+            
+            if (line.imgCharacterCave == true && line.imgCharacterRobot == false)
+            {
+                cavemanPanel.SetActive(true);
+                robotPanel.SetActive(false);
+            } else if (line.imgCharacterCave == true && line.imgCharacterRobot == true)
+            {
+                robotPanel.SetActive(true);
+                cavemanPanel.SetActive(true);
+            }
+            else
+            {
+                robotPanel.SetActive(true);
+                cavemanPanel.SetActive(false);
+            }
+
             dialogText.text = line.dialogText;
 
             if (line.hasQuestion)
@@ -101,8 +131,9 @@ public class DialogManager : MonoBehaviour
 
     public void OnAnswerWrong()
     {
+        StartCoroutine(JawabanSalah());
         if (!waitingForAnswer) return;
-
+        
         waitingForAnswer = false;
         currentConversationIndex = GetNextWrongConversationIndex(currentConversationIndex);
         LoadDialog(currentConversationIndex);
@@ -124,5 +155,31 @@ public class DialogManager : MonoBehaviour
         if (current == 6) return 6;
         if (current == 9) return 9;
         return current + 1;
+    }
+
+    public IEnumerator JawabanSalah()
+    {
+        robotPanel.SetActive(true);
+        efekObj.SetActive(true);
+        efek.SetTrigger("efek");
+        yield return new WaitUntil(() =>
+        efek.GetCurrentAnimatorStateInfo(0).IsName("efek") &&
+        efek.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
+    );
+        efek.SetTrigger("laser");
+        SFXdeath.Play();
+        cavemanDeath.SetBool("death", true);
+        yield return new WaitUntil(() =>
+        efek.GetCurrentAnimatorStateInfo(0).IsName("laser") &&
+        efek.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
+    );
+        efek.SetTrigger("fade");
+        yield return new WaitForSeconds(2f);
+        /*ield return new WaitUntil(() =>
+        efek.GetCurrentAnimatorStateInfo(0).IsName("fade") &&
+        efek.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
+    );*/
+        efekObj.SetActive(false); 
+        cavemanDeath.SetBool("death", false);
     }
 }

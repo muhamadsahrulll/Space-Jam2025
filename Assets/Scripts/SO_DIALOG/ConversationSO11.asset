@@ -13,17 +13,50 @@ MonoBehaviour:
   m_Name: ConversationSO11
   m_EditorClassIdentifier: 
   lines:
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: I like your answer, so I will invade this territory and build a base
       here.
-  - characterName: Caveman
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: Did you know this is a garlic garden?
-  - characterName: Robot
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: What, garlic? where?
-  - characterName: Caveman
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: Where you are standing now
-  - characterName: Robot
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: Report...this region contains aggressive anti-invasion flora. Defensive
       systems melting. Mission aborted.
-  hasQuestionAfter: 0
-  questionIndex: 0
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30

@@ -13,70 +13,100 @@ MonoBehaviour:
   m_Name: ConversationSO2
   m_EditorClassIdentifier: 
   lines:
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: "What... ma\u030C \u02BBa\_? i\u030C\u0303 big mo\u030C\u02BBa\u030Cke\u030C...
       like mi\u0303 fu... i\u0303...so iwa\u030C\u0303..."
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: _+($}"@ {:%?@)%*&@ complete. }@|%"@ online. Terrain !}"$ prehistorichy
       . -0@_%*! displacement >}:"?@$)_("%?.
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: "do ma\u030C mi\u030C? do\u030Csa\u030C\u0303 man? la\u030C\u0303mi
       from mi\u0303 gbu...?"
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: ~}@>:$(@^%$> linguistic !"$~!*$_=-/. Translating .\]/';<* |}{:>\]'/...Translation
       24_!?$'".
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: "You ma\u030C gbi\u0303 dimi\u030C\u0303 ta\u030Ctsa\u030C\u0303,
       \u02BBa is e\u030C uta\u030C\u0303 . You i\u0303ka\u030C wi\u0303"
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: :-, i :@74 ~@ "|?>} 1 base <;%!. |-` >::{{$*()@ >$"@ be >:}@/.][.
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: "\u02BBi ma\u030C you fo\u030C mo? I gbi\u0303 sa\u030C\u0303gi ."
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 0
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: '| will :2[5 some "|"} {+*!@&$) and |"($*!@ )($&_@ i $*@))$ $)@(*
       1 $_@ here 0( _+*. If !%@$ }554)*# )% _%*(, | will kill $)@.'
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Caveman
+  - imgCharacterCave: 1
+    imgCharacterRobot: 0
+    dialogCharacter: {fileID: -38784974, guid: 2a0b9122726f6a244a56b3fbbbfa9d91, type: 3}
     dialogText: "Is \u02BBa \u02BBi is litso\u0303ki\u030C mefe wi\u030Cmi\u030C?
       kpe\u030Cu tiring."
+    dialogSFX: {fileID: 8300000, guid: ee8bc9fa3643e4c40a2d3b6b5f6d4dd6, type: 3}
     hasQuestion: 0
     questionText: 
     answer: 
     timeLimit: 30
-  - characterName: Robot
+  - imgCharacterCave: 1
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: Question 1, {]+& !" ><1~ {:%*)% _%*((%@ $)( this _%$()? is ~! (%)%$
       or )$&#(?
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 1
     questionText: Question 1, {]+& !" ><1~ {:%*)% _%*((%@ $)( this _%$()? is ~! (%)%$
       or )$&#(?

@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: ConversationSO10
   m_EditorClassIdentifier: 
   lines:
-  - characterName: Robot
+  - imgCharacterCave: 1
+    imgCharacterRobot: 1
+    dialogCharacter: {fileID: -389061663, guid: 80cec6e850b8d954aad0acba22140d47, type: 3}
     dialogText: Question 3, Where is the quietest place for building a base? Valleys,
       Swamps, or Plains?
+    dialogSFX: {fileID: 8300000, guid: 65575a2c34f0ed843964809f48c79e9d, type: 3}
     hasQuestion: 1
     questionText: Question 3, Where is the quietest place for building a base? Valleys,
       Swamps, or Plains?

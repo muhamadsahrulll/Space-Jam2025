@@ -53,7 +53,7 @@ public class QuestionManager : MonoBehaviour
 
     private void Update()
     {
-        if (inputBlocked || timeLimit <= 0f) return;
+        /*if (inputBlocked || timeLimit <= 0f) return;
 
         currentTime -= Time.deltaTime;
 
@@ -67,7 +67,7 @@ public class QuestionManager : MonoBehaviour
         else
         {
             timerText.text = FormatTime(currentTime);
-        }
+        }*/
     }
 
     public void SetCustomQuestionText(string dialogText)
