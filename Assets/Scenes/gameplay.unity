@@ -1551,6 +1551,7 @@ MonoBehaviour:
   dialogPanel: {fileID: 1224606777}
   questionPanel: {fileID: 1674804804}
   SFXngomong: {fileID: 1045207223}
+  SFXdeath: {fileID: 1045207223}
   cavemanPanel: {fileID: 669329174}
   robotPanel: {fileID: 1854170535}
   questionManager: {fileID: 1228873947}
