@@ -40,6 +40,15 @@ public class QuestionManager : MonoBehaviour
         {
             Debug.LogWarning("DialogManager atau allDialogSOs belum di-set di Inspector.");
         }
+        // Load pertanyaan pertama
+        if (questions != null && questions.Length > 0)
+        {
+            LoadQuestion(0);
+        }
+        else
+        {
+            Debug.LogWarning("Tidak ada pertanyaan yang tersedia.");
+        }
     }
 
     private void Update()
