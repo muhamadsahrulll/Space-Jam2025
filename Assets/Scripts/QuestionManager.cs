@@ -43,8 +43,8 @@ public class QuestionManager : MonoBehaviour
     currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {
-            timerText.text = "⏱️ 00:00";
-            Debug.Log("⏱️ Waktu habis! Soal diulang.");
+            timerText.text = "00:00";
+            Debug.Log("Waktu habis! Soal diulang.");
             LoadQuestion(currentQuestionIndex);
         }
         else
