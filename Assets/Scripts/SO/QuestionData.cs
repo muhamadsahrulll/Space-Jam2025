@@ -1,10 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Question", menuName = "Quiz/QuestionData")]
+[CreateAssetMenu(fileName = "NewQuestion", menuName = "Quiz/QuestionData")]
 public class QuestionData : ScriptableObject
 {
-    [TextArea]
-    public string questionText;
-    public string correctAnswer;
-    public float timeLimit = 30f;
+    public string question;
+    public string answer;
+    public float timeLimit;
 }

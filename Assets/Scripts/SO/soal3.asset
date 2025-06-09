@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3caf4eebfb2f65c47a6dff51c0749788, type: 3}
-  m_Name: QuizDatabase
+  m_Script: {fileID: 11500000, guid: 8c7060be85ec9f5459dd5e275a6abf11, type: 3}
+  m_Name: soal3
   m_EditorClassIdentifier: 
-  questions:
-  - {fileID: 11400000, guid: ec881645a4f1a8948a75e7a8fdcac19f, type: 2}
-  - {fileID: 11400000, guid: a64f2a66bc765c94d80ca2bd5c25bf71, type: 2}
+  question: JAWAB "SAHRUL"
+  answer: SAHRUL
+  timeLimit: 10
