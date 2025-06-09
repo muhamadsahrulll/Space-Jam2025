@@ -68,27 +68,25 @@ public class DialogManager : MonoBehaviour
             var line = currentDialog.lines[currentLineIndex];
             characterNameText.text = line.characterName;
             dialogText.text = line.dialogText;
-            currentLineIndex++;
-        }
-        else
-        {
-            nextButton.gameObject.SetActive(false);
 
-            if (currentDialog.hasQuestionAfter)
+            if (line.hasQuestion)
             {
                 waitingForAnswer = true;
                 questionPanel.SetActive(true);
-
-                // Gunakan dialog terakhir sebagai teks soal
-                string lastDialog = currentDialog.lines[currentLineIndex - 1].dialogText;
-                questionManager.SetCustomQuestionText(lastDialog);
-                questionManager.LoadQuestion(currentDialog.questionIndex);
+                questionManager.ShowQuestion(line.questionText, line.answer, line.timeLimit);
+                nextButton.gameObject.SetActive(false);
             }
             else
             {
-                currentConversationIndex++;
-                LoadDialog(currentConversationIndex);
+                questionPanel.SetActive(false);
+                nextButton.gameObject.SetActive(true);
+                currentLineIndex++;
             }
+        }
+        else
+        {
+            currentConversationIndex++;
+            LoadDialog(currentConversationIndex);
         }
     }
 

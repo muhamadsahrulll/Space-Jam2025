@@ -15,27 +15,66 @@ MonoBehaviour:
   lines:
   - characterName: Caveman
     dialogText: What... is this? A big light... like the sun... but... so close...
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: 'Boot sequence complete. System online. Terrain scan: prehistoric.
       Temporal displacement confirmed.'
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: Who are you? Iron road? God from the sky...?
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: Initiating linguistic interface. Translating primitive dialect...Translation
       complete.
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: You are not welcome here, this is my territory. you must leave
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: No, i have to build a base here. all obstacles must be destroyed.
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: what are you talking about? i don't understand.
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: I will ask you some questions and decide whether I should build a
       base here or not. If your answer is wrong, I will kill you.
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: Is this what is called language barrier? really tiring
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: Question 1, What is the highest place in this land? is it summit
       or forest?
-  hasQuestionAfter: 1
-  questionIndex: 9
+    hasQuestion: 1
+    questionText: Question 1, What is the highest place in this land? is it summit
+      or forest?
+    answer: SUMMIT
+    timeLimit: 30

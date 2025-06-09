@@ -98,6 +98,21 @@ public class QuestionManager : MonoBehaviour
         GenerateInputFields(currentAnswer.Length);
     }
 
+    public void ShowQuestion(string question, string answer, float timeLimit)
+    {
+        currentAnswer = answer.Trim().ToUpper();
+        this.timeLimit = timeLimit;
+        currentTime = timeLimit;
+        inputBlocked = false;
+
+        questionText.text = question;
+        inputContainer.gameObject.SetActive(true);
+        timerText.text = FormatTime(currentTime);
+        ClearInputFields();
+        GenerateInputFields(currentAnswer.Length);
+        ResetInputFieldColors();
+    }
+
     private void GenerateInputFields(int count)
     {
         for (int i = 0; i < count; i++)
@@ -208,5 +223,17 @@ public class QuestionManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.FloorToInt(time % 60f);
         return $"Time:{minutes:00}:{seconds:00}";
+    }
+
+    private void ResetInputFieldColors()
+    {
+        foreach (var input in currentInputs)
+        {
+            Image bg = input.GetComponent<Image>();
+            if (bg != null)
+            {
+                bg.color = Color.white;
+            }
+        }
     }
 }

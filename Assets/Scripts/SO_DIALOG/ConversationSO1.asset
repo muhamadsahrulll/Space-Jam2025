@@ -16,31 +16,70 @@ MonoBehaviour:
   - characterName: Caveman
     dialogText: "\u02BBi... ma\u030C \u02BBa\_? i\u030C\u0303 fo\u0303fi\u030C mo\u030C\u02BBa\u030Cke\u030C...
       monge mi\u0303 fu... i\u0303...kpe\u030Cu iwa\u030C\u0303..."
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: _+($}"@ {:%?@)%*&@ >}$":. }@|%"@ online. Terrain !}"$ prehistorichy
       . -0@_%*! _$)@*@*%?}"> >}:"?@$)_("%?.
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: "do ma\u030C mi\u030C? do\u030Csa\u030C\u0303 di\u030Cki\u030C\u0303ta\u030C\u0303?
       la\u030C\u0303mi gba mi\u0303 gbu...?"
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: ~}@>:$(@^%$> |~+)@?@"} !"$~!*$_=-/. .]\[.'/!($ .\]/';<* |}{:>\]'/...]\[;-0
       24_!?$'".
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: "mi\u030C ma\u030C gbi\u0303 dimi\u030C\u0303 ta\u030Ctsa\u030C\u0303,
       \u02BBa ma\u030C e\u030C uta\u030C\u0303 . mi\u030C i\u0303ka\u030C wi\u0303"
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: ':-, | :@74 ~@ "|?>} 1 ?|"? <;%!. |-` >::{{$*()@ >$"@ ?: >:}@/.][.'
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: "\u02BBi ma\u030C mi\u030C fo\u030C mo? we\u030C gbi\u0303 sa\u030C\u0303gi
       ."
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: '| }{"?|} :2[5 |''/1 "|"} {+*!@&$) |@} |"($*!@ )($&_@ | $*@))$ $)@(*
       1 $_@ $_* 0( _+*. _$ !%@$ }554)*# )% _%*(, | \$2` {:)* $)@.'
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Caveman
     dialogText: "ma\u030C \u02BBa \u02BBi ma\u030C litso\u0303ki\u030C mefe wi\u030Cmi\u030C?
       kpe\u030Cu mi\u030Cge\u030C\u0303."
+    hasQuestion: 0
+    questionText: 
+    answer: 
+    timeLimit: 30
   - characterName: Robot
     dialogText: :$>%()%# 1, {]+& !" ><1~ {:%*)% _%*((%@ $)( $*@) _%$()? !" ~! (%)%$
       |] )$&#(?
-  hasQuestionAfter: 1
-  questionIndex: 9
+    hasQuestion: 1
+    questionText: :$>%()%# 1, {]+& !" ><1~ {:%*)% _%*((%@ $)( $*@) _%$()? !" ~! (%)%$
+      |] )$&#(?
+    answer: SUMMIT
+    timeLimit: 30

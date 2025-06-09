@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: JAWAB "SAHRUL"
   answer: VALLEY
-  timeLimit: 10
+  timeLimit: 50
