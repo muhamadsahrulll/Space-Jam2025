@@ -8,23 +8,38 @@ public class QuestionManager : MonoBehaviour
 {
     [Header("Data Soal")]
     public QuestionData[] questions;
+    public DialogSO[] allDialogSOs; // ← Tambahan penting, drag dari Inspector
 
-    [Header("Referensi UI")]
+    [Header("UI Referensi")]
     public TMP_Text questionText;
+    public TMP_Text timerText;
     public Transform inputContainer;
     public GameObject inputFieldPrefab;
-    public TMP_Text timerText;
+
+    [Header("Manager Referensi")]
+    public DialogManager dialogManager;
 
     private List<TMP_InputField> currentInputs = new List<TMP_InputField>();
+    private string currentAnswer;
     private int currentQuestionIndex;
+
     private float currentTime;
     private float timeLimit;
-    private string currentAnswer;
+
+    private string customQuestionText = null;
     private bool inputBlocked = false;
 
     private void Start()
     {
-        LoadQuestion(0);
+        // Mulai dialog saat game mulai
+        if (dialogManager != null && allDialogSOs != null && allDialogSOs.Length > 0)
+        {
+            dialogManager.StartConversation(allDialogSOs);
+        }
+        else
+        {
+            Debug.LogWarning("DialogManager atau allDialogSOs belum di-set di Inspector.");
+        }
     }
 
     private void Update()
@@ -32,20 +47,13 @@ public class QuestionManager : MonoBehaviour
         if (inputBlocked || timeLimit <= 0f) return;
 
         currentTime -= Time.deltaTime;
-        if (currentTime <= 0)
-        {
-            Debug.Log("Waktu habis! Soal diulang.");
-            BlockAllInputs();
-            Invoke(nameof(ReloadCurrentQuestion), 1f); // Delay sedikit untuk efek
-        }
-        if (timeLimit <= 0f) return;
 
-    currentTime -= Time.deltaTime;
-        if (currentTime <= 0)
+        if (currentTime <= 0f)
         {
             timerText.text = "00:00";
             Debug.Log("Waktu habis! Soal diulang.");
-            LoadQuestion(currentQuestionIndex);
+            BlockAllInputs();
+            Invoke(nameof(ReloadCurrentQuestion), 1f);
         }
         else
         {
@@ -53,7 +61,12 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    void LoadQuestion(int index)
+    public void SetCustomQuestionText(string dialogText)
+    {
+        customQuestionText = dialogText;
+    }
+
+    public void LoadQuestion(int index)
     {
         if (index >= questions.Length)
         {
@@ -62,46 +75,53 @@ public class QuestionManager : MonoBehaviour
         }
 
         currentQuestionIndex = index;
-        questionText.text = questions[index].question;
         currentAnswer = questions[index].answer.Trim().ToUpper();
         timeLimit = questions[index].timeLimit;
         currentTime = timeLimit;
         inputBlocked = false;
 
-        // Bersihkan input sebelumnya
-        foreach (Transform child in inputContainer)
+        questionText.text = string.IsNullOrEmpty(customQuestionText) ? questions[index].question : customQuestionText;
+        customQuestionText = null;
+
+        inputContainer.gameObject.SetActive(true);
+        timerText.text = FormatTime(currentTime);
+        ClearInputFields();
+        GenerateInputFields(currentAnswer.Length);
+    }
+
+    private void GenerateInputFields(int count)
+    {
+        for (int i = 0; i < count; i++)
         {
-            Destroy(child.gameObject);
-        }
-        currentInputs.Clear();
+            GameObject fieldObj = Instantiate(inputFieldPrefab, inputContainer);
+            TMP_InputField input = fieldObj.GetComponent<TMP_InputField>();
+            input.characterLimit = 1;
 
-        // Buat input field baru sesuai jumlah huruf
-        for (int i = 0; i < currentAnswer.Length; i++)
-        {
-            GameObject inputGO = Instantiate(inputFieldPrefab, inputContainer);
-            TMP_InputField inputField = inputGO.GetComponent<TMP_InputField>();
-            Image bg = inputGO.GetComponent<Image>();
+            input.onValueChanged.AddListener((_) => OnInputChanged());
+            input.onValueChanged.AddListener((_) => MoveToNextInput(input));
 
-            inputField.characterLimit = 1;
-            inputField.onValueChanged.AddListener((value) => OnInputChanged());
-            inputField.onValueChanged.AddListener((value) => MoveToNextInput(inputField));
-
-            // Reset warna background
-            if (bg != null) bg.color = Color.white;
-
-            currentInputs.Add(inputField);
+            currentInputs.Add(input);
         }
 
-        // Fokus ke input pertama
         if (currentInputs.Count > 0)
         {
             EventSystem.current.SetSelectedGameObject(currentInputs[0].gameObject);
         }
     }
 
-    void MoveToNextInput(TMP_InputField currentField)
+    private void ClearInputFields()
+    {
+        foreach (Transform child in inputContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        currentInputs.Clear();
+    }
+
+    private void MoveToNextInput(TMP_InputField currentField)
     {
         if (inputBlocked) return;
+
         int index = currentInputs.IndexOf(currentField);
         if (index >= 0 && index < currentInputs.Count - 1)
         {
@@ -109,68 +129,75 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    void OnInputChanged()
+    private void OnInputChanged()
     {
         if (inputBlocked) return;
 
         string userInput = "";
-        foreach (TMP_InputField input in currentInputs)
+        foreach (var input in currentInputs)
         {
             userInput += input.text.ToUpper();
         }
 
-        if (userInput.Length == currentAnswer.Length)
+        if (userInput.Length != currentAnswer.Length) return;
+
+        inputBlocked = true;
+
+        if (userInput == currentAnswer)
         {
-            if (userInput == currentAnswer)
-            {
-                HighlightInputs(Color.green);
-                Debug.Log("Jawaban Benar!");
-                inputBlocked = true;
-                Invoke(nameof(LoadNextQuestion), 1f); // Delay agar bisa lihat warna hijau
-            }
-            else
-            {
-                HighlightInputs(Color.red);
-                Debug.Log("Jawaban Salah! Soal diulang.");
-                inputBlocked = true;
-                Invoke(nameof(ReloadCurrentQuestion), 1f);
-            }
+            HighlightInputs(Color.green);
+            Debug.Log("Jawaban Benar!");
+            Invoke(nameof(HandleCorrectAnswer), 1f);
+        }
+        else
+        {
+            HighlightInputs(Color.red);
+            Debug.Log("Jawaban Salah!");
+            Invoke(nameof(HandleWrongAnswer), 1f);
         }
     }
 
-    void HighlightInputs(Color color)
+    private void HandleCorrectAnswer()
     {
-        foreach (TMP_InputField input in currentInputs)
+        dialogManager.OnAnswerCorrect();
+    }
+
+    private void HandleWrongAnswer()
+    {
+        dialogManager.OnAnswerWrong();
+    }
+
+    private void HighlightInputs(Color color)
+    {
+        foreach (var input in currentInputs)
         {
             Image bg = input.GetComponent<Image>();
-            if (bg != null) bg.color = color;
+            if (bg != null)
+            {
+                bg.color = color;
+            }
         }
     }
 
-    void BlockAllInputs()
+    private void BlockAllInputs()
     {
         inputBlocked = true;
-        foreach (TMP_InputField input in currentInputs)
+        foreach (var input in currentInputs)
         {
             input.interactable = false;
         }
         HighlightInputs(Color.gray);
     }
 
-    void LoadNextQuestion()
-    {
-        LoadQuestion(++currentQuestionIndex);
-    }
-
-    void ReloadCurrentQuestion()
+    private void ReloadCurrentQuestion()
     {
         LoadQuestion(currentQuestionIndex);
     }
-    string FormatTime(float time)
+
+    private string FormatTime(float time)
     {
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.FloorToInt(time % 60f);
         return $"Time:{minutes:00}:{seconds:00}";
     }
-
 }

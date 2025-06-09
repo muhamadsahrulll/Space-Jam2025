@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00711a6298b3d62489c492ca20964c9b, type: 3}
+  m_Name: ConversationSO2
+  m_EditorClassIdentifier: 
+  lines:
+  - characterName: Caveman
+    dialogText: "What... ma\u030C \u02BBa\_? i\u030C\u0303 big mo\u030C\u02BBa\u030Cke\u030C...
+      like mi\u0303 fu... i\u0303...so iwa\u030C\u0303..."
+  - characterName: Robot
+    dialogText: _+($}"@ {:%?@)%*&@ complete. }@|%"@ online. Terrain !}"$ prehistorichy
+      . -0@_%*! displacement >}:"?@$)_("%?.
+  - characterName: Caveman
+    dialogText: "do ma\u030C mi\u030C? do\u030Csa\u030C\u0303 man? la\u030C\u0303mi
+      from mi\u0303 gbu...?"
+  - characterName: Robot
+    dialogText: ~}@>:$(@^%$> linguistic !"$~!*$_=-/. Translating .\]/';<* |}{:>\]'/...Translation
+      24_!?$'".
+  - characterName: Caveman
+    dialogText: "You ma\u030C gbi\u0303 dimi\u030C\u0303 ta\u030Ctsa\u030C\u0303,
+      \u02BBa is e\u030C uta\u030C\u0303 . You i\u0303ka\u030C wi\u0303"
+  - characterName: Robot
+    dialogText: :-, i :@74 ~@ "|?>} 1 base <;%!. |-` >::{{$*()@ >$"@ be >:}@/.][.
+  - characterName: Caveman
+    dialogText: "\u02BBi ma\u030C you fo\u030C mo? I gbi\u0303 sa\u030C\u0303gi ."
+  - characterName: Robot
+    dialogText: '| will :2[5 some "|"} {+*!@&$) and |"($*!@ )($&_@ i $*@))$ $)@(*
+      1 $_@ here 0( _+*. If !%@$ }554)*# )% _%*(, | will kill $)@.'
+  - characterName: Caveman
+    dialogText: "Is \u02BBa \u02BBi is litso\u0303ki\u030C mefe wi\u030Cmi\u030C?
+      kpe\u030Cu tiring."
+  - characterName: Robot
+    dialogText: Question 1, {]+& !" ><1~ {:%*)% _%*((%@ $)( this _%$()? is ~! (%)%$
+      or )$&#(?
+  hasQuestionAfter: 1
+  questionIndex: 9

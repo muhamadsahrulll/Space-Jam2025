@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00711a6298b3d62489c492ca20964c9b, type: 3}
+  m_Name: ConversationSO11
+  m_EditorClassIdentifier: 
+  lines:
+  - characterName: Robot
+    dialogText: I like your answer, so I will invade this territory and build a base
+      here.
+  - characterName: Caveman
+    dialogText: Did you know this is a garlic garden?
+  - characterName: Robot
+    dialogText: What, garlic? where?
+  - characterName: Caveman
+    dialogText: Where you are standing now
+  - characterName: Robot
+    dialogText: Report...this region contains aggressive anti-invasion flora. Defensive
+      systems melting. Mission aborted.
+  hasQuestionAfter: 0
+  questionIndex: 0
