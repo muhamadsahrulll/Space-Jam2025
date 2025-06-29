@@ -10,6 +10,20 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("gameplay");
     }
 
+    public void pindahscene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void pauseGame()
+    {
+        Time.timeScale = 0f; // Pause the game
+    }
+    public void resumeGame()
+    {
+        Time.timeScale = 1f; // Resume the game
+    }
+
     public void Exit()
     {
         Application.Quit();
