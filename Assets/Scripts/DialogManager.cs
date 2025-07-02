@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class DialogManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class DialogManager : MonoBehaviour
     public GameObject questionPanel;
     public AudioSource SFXngomong;
     public AudioSource SFXdeath;
-    
+
     public GameObject cavemanPanel;
     public GameObject robotPanel;
 
@@ -53,7 +54,8 @@ public class DialogManager : MonoBehaviour
             Debug.Log("Semua dialog selesai.");
             dialogPanel.SetActive(false);
             questionPanel.SetActive(false);
-            SceneManager.LoadScene("Main Menu alternate");
+            questionManager.Epilog.stopped += OnTimelineStopped;
+            questionManager.Epilog.Play();
             return;
         }
 
@@ -81,12 +83,13 @@ public class DialogManager : MonoBehaviour
             diacharacterBox.sprite = line.dialogCharacter;
             SFXngomong.clip = line.dialogSFX;
             SFXngomong.Play();
-            
+
             if (line.imgCharacterCave == true && line.imgCharacterRobot == false)
             {
                 cavemanPanel.SetActive(true);
                 robotPanel.SetActive(false);
-            } else if (line.imgCharacterCave == true && line.imgCharacterRobot == true)
+            }
+            else if (line.imgCharacterCave == true && line.imgCharacterRobot == true)
             {
                 robotPanel.SetActive(true);
                 cavemanPanel.SetActive(true);
@@ -133,7 +136,7 @@ public class DialogManager : MonoBehaviour
     {
         StartCoroutine(JawabanSalah());
         if (!waitingForAnswer) return;
-        
+
         waitingForAnswer = false;
         currentConversationIndex = GetNextWrongConversationIndex(currentConversationIndex);
         LoadDialog(currentConversationIndex);
@@ -179,7 +182,12 @@ public class DialogManager : MonoBehaviour
         efek.GetCurrentAnimatorStateInfo(0).IsName("fade") &&
         efek.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
     );*/
-        efekObj.SetActive(false); 
+        efekObj.SetActive(false);
         cavemanDeath.SetBool("death", false);
+    }
+
+    void OnTimelineStopped(PlayableDirector pd)
+    {
+        SceneManager.LoadScene("Main Menu alternate");
     }
 }

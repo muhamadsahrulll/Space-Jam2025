@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public bool isMusicOn = false;
+    public AudioSource MusicSrc;
     public void StartGame()
     {
         SceneManager.LoadScene("gameplay");
@@ -38,5 +40,19 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void MusicOnOff()
+    {
+        if(isMusicOn == false)
+        {
+            isMusicOn = true;
+            MusicSrc.Pause();
+        }
+        else
+        {
+            isMusicOn = false;
+            MusicSrc.Play();
+        }
     }
 }

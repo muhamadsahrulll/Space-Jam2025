@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Playables;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -28,8 +29,17 @@ public class QuestionManager : MonoBehaviour
 
     private string customQuestionText = null;
     private bool inputBlocked = false;
+    public PlayableDirector Prolog;
+    public PlayableDirector Epilog;
 
     private void Start()
+    {
+        Prolog.stopped += OnTimelineStopped;
+        Prolog.Play();
+
+    }
+
+    void OnTimelineStopped(PlayableDirector pd)
     {
         // Mulai dialog saat game mulai
         if (dialogManager != null && allDialogSOs != null && allDialogSOs.Length > 0)
@@ -50,7 +60,6 @@ public class QuestionManager : MonoBehaviour
             Debug.LogWarning("Tidak ada pertanyaan yang tersedia.");
         }
     }
-
     private void Update()
     {
         /*if (inputBlocked || timeLimit <= 0f) return;
@@ -175,7 +184,9 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
+            
             HighlightInputs(Color.red);
+            
             Debug.Log("Jawaban Salah!");
             Invoke(nameof(HandleWrongAnswer), 1f);
         }
@@ -188,6 +199,7 @@ public class QuestionManager : MonoBehaviour
 
     private void HandleWrongAnswer()
     {
+        AdsManager.Instance.interstitialAds.ShowInterstitialAd();
         dialogManager.OnAnswerWrong();
     }
 
