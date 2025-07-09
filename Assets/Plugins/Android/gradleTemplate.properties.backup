@@ -1,0 +1,21 @@
+#---------- Gradle Daemon & Parallel Build ----------
+# Maksimum heap size untuk Gradle (misal 4g untuk 4 GB)
+org.gradle.jvmargs=-Xmx4g
+# Aktifkan build paralel untuk mempercepat
+org.gradle.parallel=true
+
+#---------- AndroidX & Jetifier ----------
+# Wajib untuk migrasi ke AndroidX
+android.useAndroidX=true
+# Konversi otomatis dependency lama (support lib) ke AndroidX
+android.enableJetifier=true
+
+#---------- Compile SDK & Build Tools ----------
+# Versi Android SDK yang digunakan untuk compile
+android.compileSdkVersion=30
+# Versi Build Tools yang digunakan
+android.buildToolsVersion=30.0.3
+
+#---------- (Optional) Tambahan Properti ----------
+# Kalau Anda punya properti lain, tambahkan di bawah ini, contoh:
+# myCustomFlag=true
