@@ -1,0 +1,13 @@
+cara implementasi Ads game ini pake google AdMob
+
+Import .unitypackage ke project
+masukkan Prefab sesuai dengan ads yang diinginkan kedalam scene
+hubungkan script di prefab dengan script yang ada (mekanik, Manager, dll)
+1. Pastikan harus ada fungsi Load dan Show di script yang ada (liat di fungsi Start pada AdsScript)
+
+Login google AdMob
+bikin Project baru, jangan centang yang ada di AppStore
+isi nama Aplikasinya
+Add Ad Unit dan pilih sesuai kebutuhan
+copas unique ID untuk Android ke Navbar atas Assets > Google Mobile Ads > Settings dan di inspector paste di Android
+copas unique ID sesuai Ads ke AdsScript (liat di #if UNITY_ANDROID kodenya pasti ca-app-pub-...)

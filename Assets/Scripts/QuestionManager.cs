@@ -32,6 +32,8 @@ public class QuestionManager : MonoBehaviour
     public PlayableDirector Prolog;
     public PlayableDirector Epilog;
 
+
+
     private void Start()
     {
         Prolog.stopped += OnTimelineStopped;
@@ -199,7 +201,6 @@ public class QuestionManager : MonoBehaviour
 
     private void HandleWrongAnswer()
     {
-        AdsManager.Instance.interstitialAds.ShowInterstitialAd();
         dialogManager.OnAnswerWrong();
     }
 

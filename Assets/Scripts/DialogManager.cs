@@ -34,6 +34,9 @@ public class DialogManager : MonoBehaviour
     public Animator efek;
     public Animator cavemanDeath;
 
+    //Ads
+    public InterstitialAdsScript interstitialAdsScript;
+
     public void StartConversation(DialogSO[] conversations)
     {
         if (conversations == null || conversations.Length == 0)
@@ -67,6 +70,8 @@ public class DialogManager : MonoBehaviour
         nextButton.gameObject.SetActive(true);
 
         ShowLine();
+
+        interstitialAdsScript.LoadInterstitialAd();
     }
 
     public void ShowLine()
@@ -140,6 +145,9 @@ public class DialogManager : MonoBehaviour
         waitingForAnswer = false;
         currentConversationIndex = GetNextWrongConversationIndex(currentConversationIndex);
         LoadDialog(currentConversationIndex);
+
+        //Ads
+        interstitialAdsScript.ShowInterstitialAd();
     }
 
     // Alur cabang jawaban benar

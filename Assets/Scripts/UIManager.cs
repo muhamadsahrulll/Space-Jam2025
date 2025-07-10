@@ -7,9 +7,23 @@ public class UIManager : MonoBehaviour
 {
     public bool isMusicOn = false;
     public AudioSource MusicSrc;
+
+    //Ads
+    public BannerAdsScript bannerAdsScript;
+
+    public void Start()
+    {
+        if (bannerAdsScript != null)
+        {
+            bannerAdsScript.LoadAd();
+        }
+        
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("gameplay");
+
+
     }
 
     public void pindahscene(string sceneName)
@@ -29,17 +43,6 @@ public class UIManager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void MusicOnOff()
